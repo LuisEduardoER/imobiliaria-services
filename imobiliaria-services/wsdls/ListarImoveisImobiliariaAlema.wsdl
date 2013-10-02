@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ns="http://services.imobiliariaservices.com.br" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ax21="http://model.imobiliariaservices.com.br/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://services.imobiliariaservices.com.br">
+    <wsdl:documentation>
+		Please Type your service description here
+	</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://model.imobiliariaservices.com.br/xsd">
+            <xs:complexType name="Imovel">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="imbBairro" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="imbCidade" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="imbCnpj" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="imbComplemento" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="imbEstado" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="imbLogradouro" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="imbNome" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="imbNumero" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="imbTel1" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="imbTel2" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="imbTel3" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="imvArea" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="imvBairro" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="imvCidade" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="imvComplemento" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="imvEstado" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="imvHorSol" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="imvId" type="xs:int"/>
+                    <xs:element minOccurs="0" name="imvLogradouro" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="imvNumQuartos" type="xs:int"/>
+                    <xs:element minOccurs="0" name="imvNumero" type="xs:int"/>
+                    <xs:element minOccurs="0" name="imvOtrDetalhes" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="imvPosVagGaragem" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="imvPreco" type="xs:double"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ax22="http://model.imobiliariaservices.com.br/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://services.imobiliariaservices.com.br">
+            <xs:import namespace="http://model.imobiliariaservices.com.br/xsd"/>
+            <xs:element name="ListarImoveisImobiliariaAlemaException">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="ListarImoveisImobiliariaAlemaException" nillable="true" type="ns:Exception"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="Exception">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="listarAlema">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="bairro" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="valMin" type="xs:double"/>
+                        <xs:element minOccurs="0" name="valMax" type="xs:double"/>
+                        <xs:element minOccurs="0" name="numQuartos" type="xs:int"/>
+                        <xs:element minOccurs="0" name="posVagGaragem" type="xs:boolean"/>
+                        <xs:element minOccurs="0" name="horSol" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="listarAlemaResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax21:Imovel"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="listarAlemaRequest">
+        <wsdl:part name="parameters" element="ns:listarAlema"/>
+    </wsdl:message>
+    <wsdl:message name="listarAlemaResponse">
+        <wsdl:part name="parameters" element="ns:listarAlemaResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ListarImoveisImobiliariaAlemaException">
+        <wsdl:part name="parameters" element="ns:ListarImoveisImobiliariaAlemaException"/>
+    </wsdl:message>
+    <wsdl:portType name="ListarImoveisImobiliariaAlemaPortType">
+        <wsdl:operation name="listarAlema">
+            <wsdl:input message="ns:listarAlemaRequest" wsaw:Action="urn:listarAlema"/>
+            <wsdl:output message="ns:listarAlemaResponse" wsaw:Action="urn:listarAlemaResponse"/>
+            <wsdl:fault message="ns:ListarImoveisImobiliariaAlemaException" name="ListarImoveisImobiliariaAlemaException" wsaw:Action="urn:listarAlemaListarImoveisImobiliariaAlemaException"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ListarImoveisImobiliariaAlemaSoap11Binding" type="ns:ListarImoveisImobiliariaAlemaPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="listarAlema">
+            <soap:operation soapAction="urn:listarAlema" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ListarImoveisImobiliariaAlemaException">
+                <soap:fault use="literal" name="ListarImoveisImobiliariaAlemaException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="ListarImoveisImobiliariaAlemaSoap12Binding" type="ns:ListarImoveisImobiliariaAlemaPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="listarAlema">
+            <soap12:operation soapAction="urn:listarAlema" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ListarImoveisImobiliariaAlemaException">
+                <soap12:fault use="literal" name="ListarImoveisImobiliariaAlemaException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="ListarImoveisImobiliariaAlemaHttpBinding" type="ns:ListarImoveisImobiliariaAlemaPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="listarAlema">
+            <http:operation location="listarAlema"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ListarImoveisImobiliariaAlema">
+        <wsdl:port name="ListarImoveisImobiliariaAlemaHttpSoap11Endpoint" binding="ns:ListarImoveisImobiliariaAlemaSoap11Binding">
+            <soap:address location="http://localhost:9090/imobiliaria-services/services/ListarImoveisImobiliariaAlema.ListarImoveisImobiliariaAlemaHttpSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="ListarImoveisImobiliariaAlemaHttpSoap12Endpoint" binding="ns:ListarImoveisImobiliariaAlemaSoap12Binding">
+            <soap12:address location="http://localhost:9090/imobiliaria-services/services/ListarImoveisImobiliariaAlema.ListarImoveisImobiliariaAlemaHttpSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="ListarImoveisImobiliariaAlemaHttpEndpoint" binding="ns:ListarImoveisImobiliariaAlemaHttpBinding">
+            <http:address location="http://localhost:9090/imobiliaria-services/services/ListarImoveisImobiliariaAlema.ListarImoveisImobiliariaAlemaHttpEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
