@@ -1,0 +1,21 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.imobiliariaservices.com.br">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:registrarPesquisa>
+         <!--Optional:-->
+         <ser:cpf>139.475.427-20</ser:cpf>
+         <!--Zero or more repetitions:-->
+         <ser:bairro>Botafogo</ser:bairro>
+         <!--Optional:-->
+         <ser:valMin>50.000</ser:valMin>
+         <!--Optional:-->
+         <ser:valMax>500.000</ser:valMax>
+         <!--Optional:-->
+         <ser:numQuartos>5</ser:numQuartos>
+         <!--Optional:-->
+         <ser:posVagGaragem>true</ser:posVagGaragem>
+         <!--Optional:-->
+         <ser:horSol>manhã</ser:horSol>
+      </ser:registrarPesquisa>
+   </soapenv:Body>
+</soapenv:Envelope>															

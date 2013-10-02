@@ -1,0 +1,19 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.imobiliariaservices.com.br">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:registrarProposta>
+         <!--Optional:-->
+         <ser:nome>Mariana Curi</ser:nome>
+         <!--Optional:-->
+         <ser:cpf>139.475.427-20</ser:cpf>
+         <!--Optional:-->
+         <ser:cnpj>1234</ser:cnpj>
+         <!--Optional:-->
+         <ser:idOrigem>2</ser:idOrigem>
+         <!--Optional:-->
+         <ser:valor>200</ser:valor>
+         <!--Optional:-->
+         <ser:descricao></ser:descricao>
+      </ser:registrarProposta>
+   </soapenv:Body>
+</soapenv:Envelope>

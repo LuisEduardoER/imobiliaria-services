@@ -1,0 +1,19 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.imobiliariaservices.com.br">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:listarInglesa>
+         <!--Zero or more repetitions:-->
+         <ser:bairro>?</ser:bairro>
+         <!--Optional:-->
+         <ser:valMin>?</ser:valMin>
+         <!--Optional:-->
+         <ser:valMax>?</ser:valMax>
+         <!--Optional:-->
+         <ser:numQuartos>?</ser:numQuartos>
+         <!--Optional:-->
+         <ser:posVagGaragem>?</ser:posVagGaragem>
+         <!--Optional:-->
+         <ser:horSol>?</ser:horSol>
+      </ser:listarInglesa>
+   </soapenv:Body>
+</soapenv:Envelope>
